@@ -8,10 +8,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class StepsMethod {
     WebDriver driver = new ChromeDriver();
 
-    public void FirsMethod() {
+
+
+
+    public String FirsMethod() {
         try {
             driver.get("https://www.pirsoilgas.ru/");
-            Thread.sleep(6000);
+            Thread.sleep(1000);
             WebElement button = driver.findElement(By.xpath("//a[contains(@href, 'work/')]"));
             WebElement menu = driver.findElement(By.cssSelector("button[data-rd-navbar-toggle='.rd-navbar-nav-wrap']"));
 
@@ -22,8 +25,7 @@ public class StepsMethod {
                 Thread.sleep(3000);
 
             }
-            // можно так же сделать чере исключение: NoSuchElementException.
-            //так же можно сделать сразу разрешения браузера window.setSize 1920 1080 чтобы сразу можно было выбрать кнопку деятельности.
+
             else {
                 menu.click();
 
@@ -31,16 +33,18 @@ public class StepsMethod {
 
                 button.click();
 
-                String actualURl = driver.getCurrentUrl();
-                String correctLink = "https://www.pirsoilgas.ru/work/";
+
             }
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        return driver.getCurrentUrl();
     }
 
-    public void SecondMethod() {
+    public String SecondMethod() {
 
         try {
 
@@ -54,13 +58,14 @@ public class StepsMethod {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return driver.getCurrentUrl();
     }
 
     public WebDriver getDriver() {
         return driver;
     }
 
-    public void LastMethod() {
+    public String LastMethod() {
         try {
 
             WebElement button = driver.findElement(By.xpath("//a[@class='a_news' and @href='work/infosystems/korporativnaya-informatsionnaya-sistema-dlya-ohrani-truda-promishlennoy-bezopasnosti-i-proizvodstvennogo-kontrolya-kisot']"));
@@ -70,14 +75,18 @@ public class StepsMethod {
             Thread.sleep(2000);
 
 
+
         } catch (Exception e) {
             e.printStackTrace();
 
         }
-        finally {
-            ScreenshotWorks screenshotWorks = new ScreenshotWorks();
-            screenshotWorks.Screen(getDriver());
-        }
+
+
+        return driver.getCurrentUrl();
+    }
+    public void last(){
+        ScreenshotWorks screenshotWorks = new ScreenshotWorks();
+        screenshotWorks.Screen(getDriver());
     }
 }
 

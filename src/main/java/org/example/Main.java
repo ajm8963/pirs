@@ -6,5 +6,6 @@ public class Main {
     stepsMethod.FirsMethod();
     stepsMethod.SecondMethod();
     stepsMethod.LastMethod();
+    stepsMethod.last();
     }
 }
